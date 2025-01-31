@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card - Olakunde Samuel</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: montserrat;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            /* background: #f0f2f5; */
+            background-image:url(/asset/bg.png);
+            background-size:cover;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: block;
+            background: #e0e0e0;
+        }
+
+        .name {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #1a1a1a;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            text-align: center;
+            color: orange;
+            margin-bottom: 1rem;
+        }
+
+        .bio {
+            color: #2d3748;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: #4a5568;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            color: #4a5568;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background-color 0.2s;
+        }
+
+        .social-link:hover {
+            background-color: #f0f2f5;
+        }
+
+        .time {
+            text-align: center;
+            margin-top: 1rem;
+            color: #718096;
+            font-size: 0.875rem;
+        }
+        @media (max-width: 320px) {
+    .card {
+        padding: 1.5rem;
+    }
+    .profile-image {
+        width: 120px;
+        height: 120px;
+    }
+    .name {
+        font-size: 1.2rem;
+    }
+    .job-title {
+        font-size: 1rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img data-testid="profilePicture" class="profile-image" src="/asset/pp.jpg"alt="Olakunde Samuel">
+        
+        <h1 data-testid="fullName" class="name">Olakunde Samuel O.</h1>
+        
+        <h2 data-testid="jobTitle" class="job-title">React Developer</h2>
+        
+        <p data-testid="shortBio" class="bio">
+            A self-taught developer who has navigated through various tutorials to find his own path in frontend development. Currently working on React projects including a weather app and an e-commerce site. Passionate about structured, project-based learning and eager to further develop skills through the HNG internship.
+        </p>
+        
+        <div class="info-item">
+            <span data-testid="currentLocation">📍 Okitipupa, Nigeria</span>
+        </div>
+        
+        <div class="info-item">
+            <span data-testid="emailAddress">📧 olakundesamuel30@gmail.com</span>
+        </div>
+        
+        <div data-testid="socialLinks" class="social-links">
+            <a href="https://github.com/olakunde-samuel2020" class="social-link" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/samuel-olakunde" class="social-link" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com/brioleays39982" class="social-link" target="_blank">Twitter</a>
+        </div>
+        
+        <p data-testid="currentTimeUTC" class="time" id="utc-time"></p>
+    </div>
+
+    <script>
+        function updateUTCTime() {
+            const now = new Date();
+            const utcTimeElement = document.getElementById('utc-time');
+            utcTimeElement.textContent = now.toUTCString();
+        }
+        
+        // Update time immediately and then every second
+        updateUTCTime();
+        setInterval(updateUTCTime, 1000);
+    </script>
+</body>
+</html>
